@@ -5,8 +5,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Login Awareness Demo</title>
+
 <style>
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -17,96 +21,122 @@ body {
   align-items: center;
   padding: 20px;
 }
+
 .phone {
   width: 100%;
   max-width: 360px;
   text-align: center;
 }
+
+.card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 28px 22px;
+}
+
 .logo {
   font-family: cursive;
-  font-size: 43px;
-  margin-bottom: 30px;
+  font-size: 42px;
+  margin-bottom: 25px;
 }
-.card {
-  border: 1px solid #ddd;
-  background: white;
-  padding: 28px 22px;
-  border-radius: 8px;
-}
+
 input {
   width: 100%;
   padding: 14px;
-  margin: 5px 0;
+  margin: 6px 0;
   border: 1px solid #ddd;
   border-radius: 5px;
   background: #fafafa;
 }
+
 button {
   width: 100%;
-  padding: 12px;
+  padding: 13px;
   margin-top: 14px;
-  border: 0;
+  border: none;
   border-radius: 6px;
   background: #3897f0;
   color: white;
   font-weight: bold;
   cursor: pointer;
 }
+
 .notice {
-  margin-top: 22px;
+  color: #777;
   font-size: 13px;
-  color: #666;
-  line-height: 1.5;
+  line-height: 1.6;
+  margin-top: 20px;
 }
-#result { display: none; }
+
+#result {
+  display: none;
+}
 </style>
 </head>
+
 <body>
+
 <div class="phone">
   <div class="card">
+
     <div class="logo">Instagram</div>
 
     <div id="login">
-      <input id="username"
+      <input
+        id="username"
         placeholder="Demo username"
-        autocomplete="off">
+        autocomplete="off"
+      >
 
-      <input id="password"
+      <input
+        id="password"
         type="password"
         placeholder="Demo password"
-        autocomplete="off">
+        autocomplete="off"
+      >
 
-      <button onclick="demoLogin()">Try demo login</button>
+      <button onclick="demoLogin()">
+        Try demo login
+      </button>
     </div>
 
     <div id="result">
       <h2>🛡️ Stay safe online!</h2>
-      <p>This was a phishing-awareness simulation.</p>
-      <p>Your password was never saved or transmitted.</p>
-      <button onclick="resetDemo()">Try again</button>
+
+      <p>
+        This was a phishing-awareness simulation.
+      </p>
+
+      <p>
+        Your password was never saved or transmitted.
+      </p>
+
+      <button onclick="resetDemo()">
+        Try again
+      </button>
     </div>
+
   </div>
 
   <div class="notice">
     Educational demonstration only.<br>
-    This is not an official Instagram login page.
+    Not an official Instagram website.
   </div>
 </div>
 
 <script>
 function demoLogin() {
-  const username =
-    document.getElementById("username").value;
-  const password =
-    document.getElementById("password").value;
+  const user = document.getElementById("username");
+  const pass = document.getElementById("password");
 
-  if (!username.trim() || !password) {
+  if (!user.value.trim() || !pass.value) {
     alert("Enter fictional demo details first.");
     return;
   }
 
-  // Do not store or transmit the password.
-  document.getElementById("password").value = "";
+  // Password is immediately cleared.
+  pass.value = "";
 
   document.getElementById("login").style.display = "none";
   document.getElementById("result").style.display = "block";
@@ -114,9 +144,12 @@ function demoLogin() {
 
 function resetDemo() {
   document.getElementById("username").value = "";
+  document.getElementById("password").value = "";
+
   document.getElementById("login").style.display = "block";
   document.getElementById("result").style.display = "none";
 }
 </script>
+
 </body>
 </html>
